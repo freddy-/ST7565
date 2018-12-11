@@ -1,6 +1,6 @@
 # ST7565 FPGA Controller
 
-![alt ST7565](https://github.com/freddy-/ST7565/raw/master/st7565.png)
+![alt ST7565](https://github.com/freddy-/ST7565/raw/master/st7565.jpg)
 
 This project contains code to describe a hardware that initialize and drive a ST7565 display using a FPGA. 
 That display was removed from an old HP printer. I've used one cheap chinese logic analyzer to debug the communication between the main board and the display.
