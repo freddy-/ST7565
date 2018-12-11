@@ -1,0 +1,3 @@
+vhdl work "clk_divider.vhd"
+vhdl work "spi.vhd"
+vhdl work "ST7565.vhd"

@@ -1,0 +1,946 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.33 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.33 secs
+ 
+--> Reading design: main.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "main.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "main"
+Output Format                      : NGC
+Target Device                      : xc6slx9-3-tqg144
+
+---- Source Options
+Top Module Name                    : main
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Parsing VHDL file "F:\DEV\FPGA\projetos\ST7565\clk_divider.vhd" into library work
+Parsing entity <clk_divider>.
+Parsing architecture <Behavioral> of entity <clk_divider>.
+Parsing VHDL file "F:\DEV\FPGA\projetos\ST7565\spi.vhd" into library work
+Parsing entity <spi>.
+Parsing architecture <Behavioral> of entity <spi>.
+Parsing VHDL file "F:\DEV\FPGA\projetos\ST7565\up_down_counter.vhd" into library work
+Parsing entity <up_down_counter>.
+Parsing architecture <Behavioral> of entity <up_down_counter>.
+Parsing VHDL file "F:\DEV\FPGA\projetos\ST7565\ST7565.vhd" into library work
+Parsing entity <ST7565>.
+Parsing architecture <Behavioral> of entity <st7565>.
+Parsing VHDL file "F:\DEV\FPGA\projetos\ST7565\pwm.vhd" into library work
+Parsing entity <pwm>.
+Parsing architecture <Behavioral> of entity <pwm>.
+Parsing VHDL file "F:\DEV\FPGA\projetos\ST7565\debouncer.vhd" into library work
+Parsing entity <debouncer>.
+Parsing architecture <Behavioral> of entity <debouncer>.
+Parsing VHDL file "F:\DEV\FPGA\projetos\ST7565\clkDiv.vhd" into library work
+Parsing entity <clkDiv>.
+Parsing architecture <Behavioral> of entity <clkdiv>.
+Parsing VHDL file "F:\DEV\FPGA\projetos\ST7565\main.vhd" into library work
+Parsing entity <main>.
+Parsing architecture <Behavioral> of entity <main>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating entity <main> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <clkDiv> (architecture <Behavioral>) with generics from library <work>.
+
+Elaborating entity <debouncer> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <up_down_counter> (architecture <Behavioral>) with generics from library <work>.
+
+Elaborating entity <pwm> (architecture <Behavioral>) with generics from library <work>.
+
+Elaborating entity <ST7565> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <spi> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <clk_divider> (architecture <Behavioral>) with generics from library <work>.
+
+Elaborating entity <clk_divider> (architecture <Behavioral>) with generics from library <work>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <main>.
+    Related source file is "F:\DEV\FPGA\projetos\ST7565\main.vhd".
+WARNING:Xst:647 - Input <i_button<3:3>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+INFO:Xst:3210 - "F:\DEV\FPGA\projetos\ST7565\main.vhd" line 85: Output port <o_NEW_VALUE> of the instance <up_down_inst> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\DEV\FPGA\projetos\ST7565\main.vhd" line 107: Output port <o_SLOW_CLK_DBG> of the instance <Inst_ST7565> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\DEV\FPGA\projetos\ST7565\main.vhd" line 107: Output port <o_INIT_DONE_DBG> of the instance <Inst_ST7565> is unconnected or connected to loadless signal.
+    Summary:
+	no macro.
+Unit <main> synthesized.
+
+Synthesizing Unit <clkDiv>.
+    Related source file is "F:\DEV\FPGA\projetos\ST7565\clkDiv.vhd".
+        g_COUNTER_WIDTH = 16
+    Found 1-bit register for signal <r_slowClk>.
+    Found 16-bit register for signal <r_counter>.
+    Found 16-bit adder for signal <r_counter[15]_GND_6_o_add_0_OUT> created at line 42.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  17 D-type flip-flop(s).
+Unit <clkDiv> synthesized.
+
+Synthesizing Unit <debouncer>.
+    Related source file is "F:\DEV\FPGA\projetos\ST7565\debouncer.vhd".
+    Found 1-bit register for signal <r_output>.
+    Found 8-bit register for signal <r_counter>.
+    Summary:
+	inferred   9 D-type flip-flop(s).
+Unit <debouncer> synthesized.
+
+Synthesizing Unit <up_down_counter>.
+    Related source file is "F:\DEV\FPGA\projetos\ST7565\up_down_counter.vhd".
+        g_OUTPUT_WIDTH = 3
+    Found 3-bit register for signal <r_COUNTER>.
+    Found 3-bit register for signal <o_VALUE>.
+    Found 1-bit register for signal <o_NEW_VALUE>.
+    Found 3-bit register for signal <r_FSM_STATE>.
+    Found finite state machine <FSM_0> for signal <r_FSM_STATE>.
+    -----------------------------------------------------------------------
+    | States             | 5                                              |
+    | Transitions        | 9                                              |
+    | Inputs             | 3                                              |
+    | Outputs            | 4                                              |
+    | Clock              | i_CLK (rising_edge)                            |
+    | Power Up State     | s_idle                                         |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 3-bit adder for signal <r_COUNTER[2]_GND_8_o_add_2_OUT> created at line 62.
+    Found 3-bit subtractor for signal <GND_8_o_GND_8_o_sub_4_OUT<2:0>> created at line 66.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred   7 D-type flip-flop(s).
+	inferred   1 Finite State Machine(s).
+Unit <up_down_counter> synthesized.
+
+Synthesizing Unit <pwm>.
+    Related source file is "F:\DEV\FPGA\projetos\ST7565\pwm.vhd".
+        g_DUTY_WIDTH = 3
+    Found 1-bit register for signal <r_clk_prescaled>.
+    Found 3-bit register for signal <r_counter>.
+    Found 1-bit register for signal <o_VALUE>.
+    Found 5-bit register for signal <r_clk_prescaler_counter>.
+    Found 5-bit adder for signal <r_clk_prescaler_counter[4]_GND_10_o_add_1_OUT> created at line 49.
+    Found 3-bit adder for signal <r_counter[2]_GND_10_o_add_5_OUT> created at line 66.
+    Found 3-bit comparator greater for signal <r_counter[2]_i_DUTYCICLE[2]_LessThan_8_o> created at line 74
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred  10 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+Unit <pwm> synthesized.
+
+Synthesizing Unit <ST7565>.
+    Related source file is "F:\DEV\FPGA\projetos\ST7565\ST7565.vhd".
+INFO:Xst:3210 - "F:\DEV\FPGA\projetos\ST7565\ST7565.vhd" line 85: Output port <o_SENDING> of the instance <spi_master> is unconnected or connected to loadless signal.
+WARNING:Xst:653 - Signal <o_SLOW_CLK_DBG> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <o_INIT_DONE_DBG> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+    Found 4-bit register for signal <r_FSM_SEND_STATE>.
+    Found 1-bit register for signal <o_LCD_DC>.
+    Found 8-bit register for signal <r_spi_data>.
+    Found 4-bit register for signal <r_bytes_sended>.
+    Found 1-bit register for signal <o_LCD_CS>.
+    Found 1-bit register for signal <r_spi_start_send>.
+    Found 1-bit register for signal <o_LCD_RESET>.
+    Found 4-bit register for signal <r_FSM_DISPLAY>.
+    Found 1-bit register for signal <r_is_command>.
+    Found 8-bit register for signal <r_data<0>>.
+    Found 8-bit register for signal <r_data<1>>.
+    Found 8-bit register for signal <r_data<2>>.
+    Found 8-bit register for signal <r_data<3>>.
+    Found 8-bit register for signal <r_data<4>>.
+    Found 8-bit register for signal <r_data<5>>.
+    Found 8-bit register for signal <r_data<6>>.
+    Found 8-bit register for signal <r_data<7>>.
+    Found 8-bit register for signal <r_data<8>>.
+    Found 8-bit register for signal <r_data<9>>.
+    Found 8-bit register for signal <r_data<10>>.
+    Found 8-bit register for signal <r_data<11>>.
+    Found 4-bit register for signal <r_bytes_to_send>.
+    Found 1-bit register for signal <r_start_send>.
+    Found 2-bit register for signal <r_pattern_counter>.
+    Found 1-bit register for signal <r_pattern_type>.
+    Found 8-bit register for signal <r_column_idx>.
+    Found 4-bit register for signal <r_page_idx>.
+    Found 1-bit register for signal <r_send_done>.
+INFO:Xst:1799 - State s_reset is never reached in FSM <r_FSM_SEND_STATE>.
+INFO:Xst:1799 - State s_init is never reached in FSM <r_FSM_SEND_STATE>.
+INFO:Xst:1799 - State s_wait is never reached in FSM <r_FSM_SEND_STATE>.
+INFO:Xst:1799 - State s_prepare_pattern is never reached in FSM <r_FSM_SEND_STATE>.
+INFO:Xst:1799 - State s_next_page is never reached in FSM <r_FSM_SEND_STATE>.
+INFO:Xst:1799 - State s_draw_done is never reached in FSM <r_FSM_SEND_STATE>.
+    Found finite state machine <FSM_1> for signal <r_FSM_SEND_STATE>.
+    -----------------------------------------------------------------------
+    | States             | 13                                             |
+    | Transitions        | 17                                             |
+    | Inputs             | 4                                              |
+    | Outputs            | 7                                              |
+    | Clock              | i_CLK (rising_edge)                            |
+    | Power Up State     | s_idle                                         |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+INFO:Xst:1799 - State s_prepare_next_data is never reached in FSM <r_FSM_DISPLAY>.
+INFO:Xst:1799 - State s_prepare_send is never reached in FSM <r_FSM_DISPLAY>.
+INFO:Xst:1799 - State s_send is never reached in FSM <r_FSM_DISPLAY>.
+INFO:Xst:1799 - State s_send_done is never reached in FSM <r_FSM_DISPLAY>.
+INFO:Xst:1799 - State s_finished is never reached in FSM <r_FSM_DISPLAY>.
+    Found finite state machine <FSM_2> for signal <r_FSM_DISPLAY>.
+    -----------------------------------------------------------------------
+    | States             | 13                                             |
+    | Transitions        | 19                                             |
+    | Inputs             | 4                                              |
+    | Outputs            | 17                                             |
+    | Clock              | i_CLK (rising_edge)                            |
+    | Power Up State     | s_reset                                        |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 4-bit adder for signal <r_bytes_sended[3]_GND_11_o_add_3_OUT> created at line 136.
+    Found 2-bit adder for signal <r_pattern_counter[1]_GND_11_o_add_23_OUT> created at line 226.
+    Found 8-bit adder for signal <r_column_idx[7]_GND_11_o_add_27_OUT> created at line 243.
+    Found 4-bit adder for signal <r_page_idx[3]_GND_11_o_add_32_OUT> created at line 252.
+    Found 8-bit 12-to-1 multiplexer for signal <r_bytes_sended[3]_X_11_o_wide_mux_2_OUT> created at line 135.
+    Found 4-bit comparator equal for signal <r_bytes_to_send[3]_r_bytes_sended[3]_equal_2_o> created at line 132
+    Summary:
+	inferred   4 Adder/Subtractor(s).
+	inferred 134 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+	inferred   5 Multiplexer(s).
+	inferred   2 Finite State Machine(s).
+Unit <ST7565> synthesized.
+
+Synthesizing Unit <spi>.
+    Related source file is "F:\DEV\FPGA\projetos\ST7565\spi.vhd".
+    Found 3-bit register for signal <r_FSM_STATE>.
+    Found 3-bit register for signal <r_COUNTER>.
+    Found 1-bit register for signal <r_START_CLK_DIV>.
+    Found 1-bit register for signal <o_FINISHED>.
+    Found 1-bit register for signal <o_SENDING>.
+    Found 1-bit register for signal <o_SPI_CLK>.
+    Found 1-bit register for signal <o_DATA>.
+    Found 8-bit register for signal <r_DATA>.
+    Found finite state machine <FSM_3> for signal <r_FSM_STATE>.
+    -----------------------------------------------------------------------
+    | States             | 5                                              |
+    | Transitions        | 11                                             |
+    | Inputs             | 3                                              |
+    | Outputs            | 5                                              |
+    | Clock              | i_CLK (rising_edge)                            |
+    | Power Up State     | s_idle                                         |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 3-bit subtractor for signal <GND_12_o_GND_12_o_sub_11_OUT<2:0>> created at line 112.
+    Found 1-bit 8-to-1 multiplexer for signal <r_COUNTER[2]_r_DATA[7]_Mux_9_o> created at line 107.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  16 D-type flip-flop(s).
+	inferred   3 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <spi> synthesized.
+
+Synthesizing Unit <clk_divider_1>.
+    Related source file is "F:\DEV\FPGA\projetos\ST7565\clk_divider.vhd".
+        N = 7
+    Found 1-bit register for signal <r_SLOW_CLK>.
+    Found 3-bit register for signal <r_CLK_DIV_CNT>.
+    Found 3-bit adder for signal <r_CLK_DIV_CNT[2]_GND_13_o_add_1_OUT> created at line 70.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred   4 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
+Unit <clk_divider_1> synthesized.
+
+Synthesizing Unit <clk_divider_2>.
+    Related source file is "F:\DEV\FPGA\projetos\ST7565\clk_divider.vhd".
+        N = 140
+    Found 1-bit register for signal <r_SLOW_CLK>.
+    Found 8-bit register for signal <r_CLK_DIV_CNT>.
+    Found 8-bit adder for signal <r_CLK_DIV_CNT[7]_GND_14_o_add_1_OUT> created at line 70.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred   9 D-type flip-flop(s).
+Unit <clk_divider_2> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 11
+ 16-bit adder                                          : 1
+ 2-bit adder                                           : 1
+ 3-bit adder                                           : 2
+ 3-bit addsub                                          : 1
+ 3-bit subtractor                                      : 1
+ 4-bit adder                                           : 2
+ 5-bit adder                                           : 1
+ 8-bit adder                                           : 2
+# Registers                                            : 50
+ 1-bit register                                        : 21
+ 16-bit register                                       : 1
+ 2-bit register                                        : 1
+ 3-bit register                                        : 5
+ 4-bit register                                        : 3
+ 5-bit register                                        : 1
+ 8-bit register                                        : 18
+# Comparators                                          : 2
+ 3-bit comparator greater                              : 1
+ 4-bit comparator equal                                : 1
+# Multiplexers                                         : 9
+ 1-bit 8-to-1 multiplexer                              : 1
+ 2-bit 2-to-1 multiplexer                              : 1
+ 3-bit 2-to-1 multiplexer                              : 3
+ 4-bit 2-to-1 multiplexer                              : 1
+ 8-bit 12-to-1 multiplexer                             : 1
+ 8-bit 2-to-1 multiplexer                              : 2
+# FSMs                                                 : 4
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+INFO:Xst:2261 - The FF/Latch <r_data_1_1> in Unit <Inst_ST7565> is equivalent to the following 9 FFs/Latches, which will be removed : <r_data_1_2> <r_data_1_3> <r_data_1_6> <r_data_2_0> <r_data_2_1> <r_data_2_2> <r_data_2_3> <r_data_2_4> <r_data_2_5> 
+INFO:Xst:2261 - The FF/Latch <r_data_3_0> in Unit <Inst_ST7565> is equivalent to the following 24 FFs/Latches, which will be removed : <r_data_3_2> <r_data_3_5> <r_data_4_0> <r_data_4_7> <r_data_5_0> <r_data_5_1> <r_data_5_3> <r_data_5_4> <r_data_6_0> <r_data_6_1> <r_data_6_2> <r_data_6_3> <r_data_6_5> <r_data_7_0> <r_data_7_1> <r_data_7_2> <r_data_7_3> <r_data_7_5> <r_data_7_7> <r_data_8_6> <r_data_9_4> <r_data_9_5> <r_data_9_7> <r_data_10_4> 
+INFO:Xst:2261 - The FF/Latch <r_data_3_1> in Unit <Inst_ST7565> is equivalent to the following 38 FFs/Latches, which will be removed : <r_data_3_3> <r_data_3_4> <r_data_3_6> <r_data_3_7> <r_data_4_1> <r_data_4_2> <r_data_4_3> <r_data_4_4> <r_data_4_5> <r_data_4_6> <r_data_5_2> <r_data_5_5> <r_data_5_6> <r_data_5_7> <r_data_6_4> <r_data_6_6> <r_data_6_7> <r_data_7_4> <r_data_7_6> <r_data_8_0> <r_data_8_1> <r_data_8_2> <r_data_8_3> <r_data_8_4> <r_data_8_5> <r_data_8_7> <r_data_9_0> <r_data_9_1> <r_data_9_2> <r_data_9_3> <r_data_9_6> <r_data_10_0> <r_data_10_1> <r_data_10_2> <r_data_10_3> <r_data_10_5> <r_data_10_6> <r_data_10_7> 
+WARNING:Xst:1710 - FF/Latch <r_data_11_0> (without init value) has a constant value of 0 in block <Inst_ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <r_data_11_1> (without init value) has a constant value of 0 in block <Inst_ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <r_data_11_2> (without init value) has a constant value of 0 in block <Inst_ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <r_data_11_3> (without init value) has a constant value of 0 in block <Inst_ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <r_data_11_4> (without init value) has a constant value of 0 in block <Inst_ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <r_data_11_5> (without init value) has a constant value of 0 in block <Inst_ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <r_data_11_6> (without init value) has a constant value of 0 in block <Inst_ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <r_data_11_7> (without init value) has a constant value of 0 in block <Inst_ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <r_data_3_0> (without init value) has a constant value of 1 in block <Inst_ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <r_data_3_1> (without init value) has a constant value of 0 in block <Inst_ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <r_data_1_1> (without init value) has a constant value of 0 in block <Inst_ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2404 -  FFs/Latches <r_data_3<7:6>> (without init value) have a constant value of 0 in block <ST7565>.
+WARNING:Xst:2404 -  FFs/Latches <r_data_5<7:5>> (without init value) have a constant value of 0 in block <ST7565>.
+WARNING:Xst:2404 -  FFs/Latches <r_data_6<7:6>> (without init value) have a constant value of 0 in block <ST7565>.
+WARNING:Xst:2404 -  FFs/Latches <r_data_8<7:7>> (without init value) have a constant value of 0 in block <ST7565>.
+WARNING:Xst:2404 -  FFs/Latches <r_data_10<7:5>> (without init value) have a constant value of 0 in block <ST7565>.
+
+Synthesizing (advanced) Unit <ST7565>.
+The following registers are absorbed into counter <r_bytes_sended>: 1 register on signal <r_bytes_sended>.
+The following registers are absorbed into counter <r_page_idx>: 1 register on signal <r_page_idx>.
+The following registers are absorbed into counter <r_column_idx>: 1 register on signal <r_column_idx>.
+The following registers are absorbed into counter <r_pattern_counter>: 1 register on signal <r_pattern_counter>.
+Unit <ST7565> synthesized (advanced).
+
+Synthesizing (advanced) Unit <clkDiv>.
+The following registers are absorbed into counter <r_counter>: 1 register on signal <r_counter>.
+Unit <clkDiv> synthesized (advanced).
+
+Synthesizing (advanced) Unit <clk_divider_1>.
+The following registers are absorbed into counter <r_CLK_DIV_CNT>: 1 register on signal <r_CLK_DIV_CNT>.
+Unit <clk_divider_1> synthesized (advanced).
+
+Synthesizing (advanced) Unit <clk_divider_2>.
+The following registers are absorbed into counter <r_CLK_DIV_CNT>: 1 register on signal <r_CLK_DIV_CNT>.
+Unit <clk_divider_2> synthesized (advanced).
+
+Synthesizing (advanced) Unit <pwm>.
+The following registers are absorbed into counter <r_clk_prescaler_counter>: 1 register on signal <r_clk_prescaler_counter>.
+The following registers are absorbed into counter <r_counter>: 1 register on signal <r_counter>.
+Unit <pwm> synthesized (advanced).
+
+Synthesizing (advanced) Unit <up_down_counter>.
+The following registers are absorbed into counter <r_COUNTER>: 1 register on signal <r_COUNTER>.
+Unit <up_down_counter> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 1
+ 3-bit subtractor                                      : 1
+# Counters                                             : 10
+ 16-bit up counter                                     : 1
+ 2-bit up counter                                      : 1
+ 3-bit up counter                                      : 2
+ 3-bit updown counter                                  : 1
+ 4-bit up counter                                      : 2
+ 5-bit up counter                                      : 1
+ 8-bit up counter                                      : 2
+# Registers                                            : 148
+ Flip-Flops                                            : 148
+# Comparators                                          : 2
+ 3-bit comparator greater                              : 1
+ 4-bit comparator equal                                : 1
+# Multiplexers                                         : 13
+ 1-bit 12-to-1 multiplexer                             : 8
+ 1-bit 8-to-1 multiplexer                              : 1
+ 3-bit 2-to-1 multiplexer                              : 2
+ 8-bit 2-to-1 multiplexer                              : 2
+# FSMs                                                 : 4
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1710 - FF/Latch <r_data_8_3> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_8_2> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_8_1> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_8_0> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_6_5> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_6_4> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_6_3> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_6_2> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_6_1> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_6_0> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_5_4> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_5_3> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_5_2> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_5_1> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_5_0> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_3_5> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_3_4> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_2_5> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_2_4> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_2_3> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_2_2> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_2_1> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_2_0> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_1_6> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_1_3> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_1_2> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_1_1> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_10_4> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_10_3> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_10_2> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_10_1> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_10_0> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_8_6> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_8_5> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_8_4> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_7_1> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_7_0> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_4_7> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_4_6> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_4_5> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_4_4> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_4_3> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_4_2> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_4_1> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_4_0> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_11_7> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_11_6> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_11_5> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_11_4> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_11_3> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_11_2> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_11_1> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_11_0> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_3_3> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_3_2> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_3_1> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_3_0> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_9_7> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_9_6> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_9_5> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_9_4> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_9_3> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_9_2> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_9_1> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_9_0> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_7_7> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_7_6> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_7_5> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_7_4> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_7_3> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_7_2> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <FSM_2> on signal <r_FSM_DISPLAY[1:4]> with user encoding.
+---------------------------------
+ State               | Encoding
+---------------------------------
+ s_reset             | 0000
+ s_init              | 0001
+ s_wait              | 0010
+ s_idle              | 0011
+ s_prepare_next_data | unreached
+ s_prepare_send      | unreached
+ s_send              | unreached
+ s_sending           | 0111
+ s_send_done         | unreached
+ s_finished          | unreached
+ s_prepare_pattern   | 1010
+ s_next_page         | 1011
+ s_draw_done         | 1100
+---------------------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <FSM_1> on signal <r_FSM_SEND_STATE[1:3]> with gray encoding.
+---------------------------------
+ State               | Encoding
+---------------------------------
+ s_reset             | unreached
+ s_init              | unreached
+ s_wait              | unreached
+ s_idle              | 000
+ s_prepare_next_data | 001
+ s_prepare_send      | 011
+ s_send              | 110
+ s_sending           | 111
+ s_send_done         | 101
+ s_finished          | 010
+ s_prepare_pattern   | unreached
+ s_next_page         | unreached
+ s_draw_done         | unreached
+---------------------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <up_down_inst/FSM_0> on signal <r_FSM_STATE[1:3]> with user encoding.
+-----------------------------
+ State           | Encoding
+-----------------------------
+ s_idle          | 000
+ s_increment     | 001
+ s_decrement     | 010
+ s_pressed       | 011
+ s_update_output | 100
+-----------------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <Inst_ST7565/spi_master/FSM_3> on signal <r_FSM_STATE[1:3]> with user encoding.
+---------------------------------
+ State               | Encoding
+---------------------------------
+ s_idle              | 000
+ s_sending           | 001
+ s_finished          | 010
+ s_increment_counter | 011
+ s_start_clk_div     | 100
+---------------------------------
+INFO:Xst:2261 - The FF/Latch <Inst_ST7565/r_data_0_7> in Unit <main> is equivalent to the following FF/Latch, which will be removed : <Inst_ST7565/r_data_0_5> 
+INFO:Xst:2261 - The FF/Latch <Inst_ST7565/r_bytes_to_send_3> in Unit <main> is equivalent to the following FF/Latch, which will be removed : <Inst_ST7565/r_bytes_to_send_2> 
+INFO:Xst:2261 - The FF/Latch <Inst_ST7565/r_data_2_7> in Unit <main> is equivalent to the following 4 FFs/Latches, which will be removed : <Inst_ST7565/r_data_2_6> <Inst_ST7565/r_data_1_7> <Inst_ST7565/r_data_1_5> <Inst_ST7565/r_data_1_0> 
+
+Optimizing unit <main> ...
+
+Optimizing unit <up_down_counter> ...
+
+Optimizing unit <spi> ...
+
+Optimizing unit <debouncer> ...
+WARNING:Xst:2677 - Node <up_down_inst/o_NEW_VALUE> of sequential type is unconnected in block <main>.
+WARNING:Xst:2677 - Node <Inst_ST7565/spi_master/o_SENDING> of sequential type is unconnected in block <main>.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block main, actual ratio is 3.
+FlipFlop Inst_ST7565/r_FSM_DISPLAY_FSM_FFd1 has been replicated 1 time(s)
+FlipFlop Inst_ST7565/slow_clk/r_SLOW_CLK has been replicated 2 time(s)
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 141
+ Flip-Flops                                            : 141
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : main.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 243
+#      GND                         : 1
+#      INV                         : 11
+#      LUT1                        : 29
+#      LUT2                        : 11
+#      LUT3                        : 16
+#      LUT4                        : 20
+#      LUT5                        : 33
+#      LUT6                        : 58
+#      MUXCY                       : 29
+#      MUXF7                       : 2
+#      VCC                         : 1
+#      XORCY                       : 32
+# FlipFlops/Latches                : 141
+#      FD                          : 82
+#      FDE                         : 34
+#      FDR                         : 16
+#      FDRE                        : 8
+#      FDSE                        : 1
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 12
+#      IBUF                        : 3
+#      OBUF                        : 9
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx9tqg144-3 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:             141  out of  11440     1%  
+ Number of Slice LUTs:                  178  out of   5720     3%  
+    Number used as Logic:               178  out of   5720     3%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:    204
+   Number with an unused Flip Flop:      63  out of    204    30%  
+   Number with an unused LUT:            26  out of    204    12%  
+   Number of fully used LUT-FF pairs:   115  out of    204    56%  
+   Number of unique control sets:        13
+
+IO Utilization: 
+ Number of IOs:                          14
+ Number of bonded IOBs:                  13  out of    102    12%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+-------------------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)               | Load  |
+-----------------------------------+-------------------------------------+-------+
+i_CLK                              | BUFGP                               | 119   |
+backlight_pwm/r_clk_prescaled      | NONE(backlight_pwm/o_VALUE)         | 4     |
+clkDiv_inst/r_slowClk              | NONE(debouncer_down_ins/r_counter_7)| 18    |
+-----------------------------------+-------------------------------------+-------+
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -3
+
+   Minimum period: 3.793ns (Maximum Frequency: 263.654MHz)
+   Minimum input arrival time before clock: 2.725ns
+   Maximum output required time after clock: 3.634ns
+   Maximum combinational path delay: 5.157ns
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'i_CLK'
+  Clock period: 3.793ns (frequency: 263.654MHz)
+  Total number of paths / destination ports: 1335 / 186
+-------------------------------------------------------------------------
+Delay:               3.793ns (Levels of Logic = 3)
+  Source:            Inst_ST7565/r_page_idx_2 (FF)
+  Destination:       Inst_ST7565/r_data_0_7 (FF)
+  Source Clock:      i_CLK rising
+  Destination Clock: i_CLK rising
+
+  Data Path: Inst_ST7565/r_page_idx_2 to Inst_ST7565/r_data_0_7
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              5   0.447   0.943  Inst_ST7565/r_page_idx_2 (Inst_ST7565/r_page_idx_2)
+     LUT4:I1->O           11   0.205   0.883  Inst_ST7565/PWR_12_o_r_page_idx[3]_equal_32_o<3>1 (Inst_ST7565/PWR_12_o_r_page_idx[3]_equal_32_o)
+     LUT5:I4->O            8   0.205   0.803  Inst_ST7565/_n0447_inv21_rstpot (Inst_ST7565/_n0447_inv21_rstpot)
+     LUT3:I2->O            1   0.205   0.000  Inst_ST7565/r_bytes_to_send_0_dpot (Inst_ST7565/r_bytes_to_send_0_dpot)
+     FDE:D                     0.102          Inst_ST7565/r_bytes_to_send_0
+    ----------------------------------------
+    Total                      3.793ns (1.164ns logic, 2.629ns route)
+                                       (30.7% logic, 69.3% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'backlight_pwm/r_clk_prescaled'
+  Clock period: 2.016ns (frequency: 495.933MHz)
+  Total number of paths / destination ports: 9 / 4
+-------------------------------------------------------------------------
+Delay:               2.016ns (Levels of Logic = 1)
+  Source:            backlight_pwm/r_counter_0 (FF)
+  Destination:       backlight_pwm/r_counter_0 (FF)
+  Source Clock:      backlight_pwm/r_clk_prescaled rising
+  Destination Clock: backlight_pwm/r_clk_prescaled rising
+
+  Data Path: backlight_pwm/r_counter_0 to backlight_pwm/r_counter_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               4   0.447   0.683  backlight_pwm/r_counter_0 (backlight_pwm/r_counter_0)
+     INV:I->O              1   0.206   0.579  backlight_pwm/Mcount_r_counter_xor<0>11_INV_0 (Result<0>1)
+     FD:D                      0.102          backlight_pwm/r_counter_0
+    ----------------------------------------
+    Total                      2.016ns (0.755ns logic, 1.261ns route)
+                                       (37.4% logic, 62.6% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clkDiv_inst/r_slowClk'
+  Clock period: 2.797ns (frequency: 357.513MHz)
+  Total number of paths / destination ports: 44 / 16
+-------------------------------------------------------------------------
+Delay:               2.797ns (Levels of Logic = 2)
+  Source:            debouncer_down_ins/r_counter_1 (FF)
+  Destination:       debouncer_down_ins/r_output (FF)
+  Source Clock:      clkDiv_inst/r_slowClk rising
+  Destination Clock: clkDiv_inst/r_slowClk rising
+
+  Data Path: debouncer_down_ins/r_counter_1 to debouncer_down_ins/r_output
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               3   0.447   1.015  debouncer_down_ins/r_counter_1 (debouncer_down_ins/r_counter_1)
+     LUT6:I0->O            1   0.203   0.827  debouncer_down_ins/r_output_rstpot_SW2 (N63)
+     LUT6:I2->O            1   0.203   0.000  debouncer_down_ins/r_output_rstpot (debouncer_down_ins/r_output_rstpot)
+     FD:D                      0.102          debouncer_down_ins/r_output
+    ----------------------------------------
+    Total                      2.797ns (0.955ns logic, 1.842ns route)
+                                       (34.1% logic, 65.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clkDiv_inst/r_slowClk'
+  Total number of paths / destination ports: 2 / 2
+-------------------------------------------------------------------------
+Offset:              2.725ns (Levels of Logic = 2)
+  Source:            i_button<1> (PAD)
+  Destination:       debouncer_down_ins/r_counter_0 (FF)
+  Destination Clock: clkDiv_inst/r_slowClk rising
+
+  Data Path: i_button<1> to debouncer_down_ins/r_counter_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             2   1.222   0.616  i_button_1_IBUF (o_LED_LARANJA_OBUF)
+     INV:I->O              1   0.206   0.579  debouncer_down_ins/i_raw_INV_6_o1_INV_0 (debouncer_down_ins/i_raw_INV_6_o)
+     FD:D                      0.102          debouncer_down_ins/r_counter_0
+    ----------------------------------------
+    Total                      2.725ns (1.530ns logic, 1.195ns route)
+                                       (56.1% logic, 43.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'i_CLK'
+  Total number of paths / destination ports: 5 / 5
+-------------------------------------------------------------------------
+Offset:              3.634ns (Levels of Logic = 1)
+  Source:            Inst_ST7565/spi_master/o_SPI_CLK (FF)
+  Destination:       o_LCD_CLK (PAD)
+  Source Clock:      i_CLK rising
+
+  Data Path: Inst_ST7565/spi_master/o_SPI_CLK to o_LCD_CLK
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               2   0.447   0.616  Inst_ST7565/spi_master/o_SPI_CLK (Inst_ST7565/spi_master/o_SPI_CLK)
+     OBUF:I->O                 2.571          o_LCD_CLK_OBUF (o_LCD_CLK)
+    ----------------------------------------
+    Total                      3.634ns (3.018ns logic, 0.616ns route)
+                                       (83.0% logic, 17.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'backlight_pwm/r_clk_prescaled'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              3.597ns (Levels of Logic = 1)
+  Source:            backlight_pwm/o_VALUE (FF)
+  Destination:       o_LCD_BACKLIGHT (PAD)
+  Source Clock:      backlight_pwm/r_clk_prescaled rising
+
+  Data Path: backlight_pwm/o_VALUE to o_LCD_BACKLIGHT
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               1   0.447   0.579  backlight_pwm/o_VALUE (backlight_pwm/o_VALUE)
+     OBUF:I->O                 2.571          o_LCD_BACKLIGHT_OBUF (o_LCD_BACKLIGHT)
+    ----------------------------------------
+    Total                      3.597ns (3.018ns logic, 0.579ns route)
+                                       (83.9% logic, 16.1% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 3 / 3
+-------------------------------------------------------------------------
+Delay:               5.157ns (Levels of Logic = 3)
+  Source:            i_button<2> (PAD)
+  Destination:       o_LCD_LED_AZUL (PAD)
+
+  Data Path: i_button<2> to o_LCD_LED_AZUL
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             1   1.222   0.579  i_button_2_IBUF (i_button_2_IBUF)
+     INV:I->O              1   0.206   0.579  o_LCD_LED_AZUL1_INV_0 (o_LCD_LED_AZUL_OBUF)
+     OBUF:I->O                 2.571          o_LCD_LED_AZUL_OBUF (o_LCD_LED_AZUL)
+    ----------------------------------------
+    Total                      5.157ns (3.999ns logic, 1.158ns route)
+                                       (77.5% logic, 22.5% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock backlight_pwm/r_clk_prescaled
+-----------------------------+---------+---------+---------+---------+
+                             | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock                 |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+-----------------------------+---------+---------+---------+---------+
+backlight_pwm/r_clk_prescaled|    2.016|         |         |         |
+i_CLK                        |    1.676|         |         |         |
+-----------------------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock clkDiv_inst/r_slowClk
+---------------------+---------+---------+---------+---------+
+                     | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock         |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------------+---------+---------+---------+---------+
+clkDiv_inst/r_slowClk|    2.797|         |         |         |
+---------------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock i_CLK
+---------------------+---------+---------+---------+---------+
+                     | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock         |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------------+---------+---------+---------+---------+
+clkDiv_inst/r_slowClk|    1.633|         |         |         |
+i_CLK                |    3.793|         |         |         |
+---------------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 13.00 secs
+Total CPU time to Xst completion: 13.26 secs
+ 
+--> 
+
+Total memory usage is 263476 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   92 (   0 filtered)
+Number of infos    :   22 (   0 filtered)
+
