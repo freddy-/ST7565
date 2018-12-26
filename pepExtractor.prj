@@ -1,4 +1,1 @@
-work	"ST7565.vhd"
 work	"clk_divider.vhd"
-work	"spi.vhd"
-work	"spi_clk_div.vhd"

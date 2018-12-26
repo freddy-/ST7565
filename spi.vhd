@@ -96,8 +96,21 @@ begin
 						r_FSM_STATE <= s_SENDING;
 						r_START_CLK_DIV <= '1';
 
+				when s_FINISHED =>
+					r_DATA <= (others => '0');
+					o_FINISHED <= '1';
+					o_SENDING <= '0';
+					o_SPI_CLK <= '1';
+
+					if (i_START = '1') then
+						r_FSM_STATE <= s_FINISHED;
+					else							
+						r_FSM_STATE <= s_IDLE;
+					end if ;
+
 				when others =>
 					null;
+					
 			end case;
 
 			if (r_SLOW_CLK = '1') then 
@@ -115,18 +128,6 @@ begin
 						else 
 							r_FSM_STATE <= s_FINISHED;
 						end if;
-
-					when s_FINISHED =>
-						r_DATA <= (others => '0');
-						o_FINISHED <= '1';
-						o_SENDING <= '0';
-						o_SPI_CLK <= '1';
-
-						if (i_START = '1') then
-							r_FSM_STATE <= s_FINISHED;
-						else							
-							r_FSM_STATE <= s_IDLE;
-						end if ;
 
 					when others =>
 						null;

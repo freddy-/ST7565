@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.07 secs
+Total CPU time to Xst completion: 0.08 secs
  
 --> Parameter xsthdpdir set to F:/DEV/FPGA/projetos/ST7565/xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.07 secs
+Total CPU time to Xst completion: 0.08 secs
  
 --> Reading design: ST7565.prj
 
@@ -50,12 +50,12 @@ Parsing entity <ST7565>.
 Parsing architecture <Behavioral> of entity <st7565>.
 
 
-Total REAL time to Xst completion: 3.00 secs
-Total CPU time to Xst completion: 3.50 secs
+Total REAL time to Xst completion: 4.00 secs
+Total CPU time to Xst completion: 3.88 secs
  
 --> 
 
-Total memory usage is 184816 kilobytes
+Total memory usage is 196016 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    0 (   0 filtered)
