@@ -48,7 +48,7 @@ end ST7565;
 
 architecture Behavioral of ST7565 is
 
-	type t_FSM_STATE is (s_RESET, s_INIT, s_WAIT, s_IDLE, s_PREPARE_NEXT_DATA, s_PREPARE_SEND, s_SEND, s_SENDING, s_SEND_DONE, s_FINISHED, s_PREPARE_PATTERN, s_NEXT_PAGE, s_DRAW_DONE);
+	type t_FSM_STATE is (s_RESET, s_INIT, s_IDLE, s_PREPARE_NEXT_DATA, s_PREPARE_SEND, s_SEND, s_SENDING, s_SEND_DONE, s_FINISHED, s_PREPARE_PATTERN, s_NEXT_PAGE);
 	signal r_FSM_SEND_STATE : t_FSM_STATE := s_IDLE;
 	signal r_FSM_DISPLAY : t_FSM_STATE := s_RESET;
 
@@ -199,15 +199,6 @@ begin
 							end if ;
 						end if ;
 
-					when s_PREPARE_NEXT_DATA =>
-						if (r_bytes_sended = r_bytes_to_send) then
-							r_FSM_SEND_STATE <= s_FINISHED;
-						else
-							r_spi_data <= r_data(r_bytes_sended);
-							r_bytes_sended <= r_bytes_sended + 1;
-							r_FSM_SEND_STATE <= s_PREPARE_SEND;
-						end if ;
-
 					when s_PREPARE_SEND =>
 						o_LCD_CS <= '0';
 						r_FSM_SEND_STATE <= s_SEND;
@@ -226,16 +217,33 @@ begin
 						o_LCD_CS <= '1';
 						r_FSM_SEND_STATE <= s_PREPARE_NEXT_DATA;						
 
-					when s_FINISHED =>
-						r_bytes_sended <= 0;
-						r_send_done <= '1';
-						r_FSM_SEND_STATE <= s_IDLE;
-
 					when others =>
 						null;
 
 				end case;
 			end if;
+
+			case r_FSM_SEND_STATE is
+				when s_PREPARE_NEXT_DATA =>
+					if (r_bytes_sended = r_bytes_to_send) then
+						r_bytes_sended <= 0;
+						r_send_done <= '1';
+						r_FSM_SEND_STATE <= s_IDLE;
+					else
+						r_spi_data <= r_data(r_bytes_sended);
+						r_bytes_sended <= r_bytes_sended + 1;
+
+						if (r_continuous_mode = '1') then
+							
+						else 
+							r_FSM_SEND_STATE <= s_PREPARE_SEND;
+						end if ;						
+					end if ;
+
+					when others =>
+						null;
+
+			end case;
 		end if;
 	end process p_send_data;
 
@@ -250,16 +258,17 @@ begin
 	-- r/w: r_FSM_DISPLAY, r_init_done
 	p_init : process (i_CLK)
 	begin
-		if (rising_edge(i_CLK)) then
-			if (r_slow_clk = '1') then
-				
+		if (rising_edge(i_CLK)) then						
 				case r_FSM_DISPLAY is
+
 					when s_RESET =>
 						o_LCD_RESET <= '0';
-						r_FSM_DISPLAY <= s_INIT;
+
+						if (r_slow_clk = '1') then
+							r_FSM_DISPLAY <= s_INIT;
+						end if;
 
 					when s_INIT =>
-						r_is_command <= '1';
 						r_data(0) <= X"A2";
 						r_data(1) <= X"A1";
 						r_data(2) <= X"C0";
@@ -273,36 +282,19 @@ begin
 						r_data(10) <= X"10";
 						r_data(11) <= X"00";
 
+						r_is_command <= '1';
 						r_bytes_to_send <= 12;
 						r_start_send <= '1';
-						r_FSM_DISPLAY <= s_WAIT;
-
+						r_FSM_DISPLAY <= s_SENDING;						
 						o_LCD_RESET <= '1';
-						
-					when s_WAIT =>
-						r_start_send <= '0';
-						if (r_send_done = '1') then
-							r_FSM_DISPLAY <= s_IDLE;
-						end if ;
 
-					when s_IDLE =>
-						r_FSM_DISPLAY <= s_PREPARE_PATTERN;
-
-
+					when s_PREPARE_PATTERN =>
 					-- apos inicializar o display
 					-- devemos percorrer os endereços de memoria enviando os dados a serem exibidos
 					-- e também enviando os dados de NEXT_PAGE
 					-- isso deverá ficar num loop
 					-- o endereço de memoria partirá de 0 até 1023
 					-- a cada 128 envios, será necessário pular para a próxima página
-
-					when s_PREPARE_PATTERN =>
-						--if (r_pattern_counter = 3) then
-            --  r_pattern_counter <= 0;
-            --  r_pattern_type <= not r_pattern_type;
-            --else 
-            --  r_pattern_counter <= r_pattern_counter + 1;
-            --end if ;
 
             r_data(0) <= r_bramDataOut;
 
@@ -321,8 +313,20 @@ begin
             end if ;
 
           when s_NEXT_PAGE =>
-          	if (r_page_idx = 8) then
-            	r_FSM_DISPLAY <= s_DRAW_DONE;
+          	if (r_page_idx = 8) then          	
+							r_readAddress <= (others => '0');
+							r_page_idx <= 0;
+
+	          	r_data(0) <= X"40";
+	          	r_data(1) <= X"B0";
+	          	r_data(2) <= X"10";
+	          	r_data(3) <= X"00";
+
+							r_is_command <= '1';
+							r_bytes_to_send <= 4;
+							r_start_send <= '1';
+	            r_FSM_DISPLAY <= s_SENDING;
+
           	else
 	          	r_page_idx <= r_page_idx + 1;
 
@@ -337,26 +341,18 @@ begin
           	end if ;
 
           when s_SENDING =>
-						r_start_send <= '0';
-            if (r_send_done = '1') then
-              r_FSM_DISPLAY <= s_PREPARE_PATTERN; 
-            end if ;
-
-					when s_DRAW_DONE =>
-						-- resetar o contador de endereços
-						r_readAddress <= (others => '0');
-						-- resetar o contador de paginas
-						r_page_idx <= 0;
-            r_FSM_DISPLAY <= s_NEXT_PAGE;
-
+						if (r_slow_clk = '1') then
+							r_start_send <= '0';
+            	if (r_send_done = '1') then
+              	r_FSM_DISPLAY <= s_PREPARE_PATTERN; 
+            	end if ;
+            end if;
 
 					when others =>
 						null;
 
 				end case;
-
 			end if;
-		end if;
 	end process p_init;
 
 
