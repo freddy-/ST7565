@@ -41,14 +41,14 @@ entity spi is
 		-- saidas
 		o_SPI_CLK: out std_logic := '1'; -- 2MHz
 		o_DATA: out std_logic := '0';
-		o_FINISHED: out std_logic := '1';
+		o_FINISHED: out std_logic := '0';
 		o_SENDING: out std_logic := '0'
 	);
 end spi;
 
 architecture Behavioral of spi is
 	-- estados da finite state machine
-	type t_STATE is (s_IDLE, s_SENDING, s_FINISHED, s_INCREMENT_COUNTER, s_START_CLK_DIV);
+	type t_STATE is (s_IDLE, s_SENDING, s_FINISHED, s_INCREMENT_COUNTER, s_START_CLK_DIV, s_TWO_CLK_DELAY);
 	signal r_FSM_STATE : t_STATE := s_IDLE;
 
 	-- contador, conta os bits a serem transmitidos
@@ -62,6 +62,8 @@ architecture Behavioral of spi is
 
 	-- clk do SPI
 	signal r_SLOW_CLK : std_logic := '0';
+
+	signal r_SLOW_CLK_START_HIGH : std_logic := '0';
 
 begin
 
@@ -81,20 +83,29 @@ begin
 		if (rising_edge(i_CLK)) then
 			case r_FSM_STATE is
 				when s_IDLE =>
+					o_FINISHED <= '0';
+					
 					if (i_START = '1') then
 						r_DATA <= i_DATA;
-						r_FSM_STATE <= s_START_CLK_DIV;
-						r_COUNTER <= 7;
+						r_FSM_STATE <= s_TWO_CLK_DELAY;
+						r_COUNTER <= 0;
 						r_START_CLK_DIV <= '0';
-						o_FINISHED <= '0';
 						o_SENDING <= '1';
 					else
 						r_FSM_STATE <= s_IDLE;
 					end if;
 
+				when s_TWO_CLK_DELAY =>
+						r_COUNTER <= r_COUNTER + 1;
+						if(r_COUNTER = 1) then
+							r_FSM_STATE <= s_START_CLK_DIV;
+						end if;
+
 				when s_START_CLK_DIV =>
+						r_SLOW_CLK_START_HIGH <= '1';
 						r_FSM_STATE <= s_SENDING;
 						r_START_CLK_DIV <= '1';
+						r_COUNTER <= 7;
 
 				when s_FINISHED =>
 					r_DATA <= (others => '0');
@@ -113,9 +124,10 @@ begin
 					
 			end case;
 
-			if (r_SLOW_CLK = '1') then 
+			if (r_SLOW_CLK = '1' or r_SLOW_CLK_START_HIGH = '1') then 
 				case r_FSM_STATE is
 					when s_SENDING =>
+						r_SLOW_CLK_START_HIGH <= '0';
 						o_SPI_CLK <= '0';
 						o_DATA <= r_DATA(r_COUNTER);
 						r_FSM_STATE <= s_INCREMENT_COUNTER;

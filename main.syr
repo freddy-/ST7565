@@ -145,8 +145,8 @@ Elaborating entity <up_down_counter> (architecture <Behavioral>) with generics f
 Elaborating entity <pwm> (architecture <Behavioral>) with generics from library <work>.
 
 Elaborating entity <ST7565> (architecture <Behavioral>) from library <work>.
-WARNING:HDLCompiler:871 - "F:\DEV\FPGA\projetos\ST7565\ST7565.vhd" Line 82: Using initial value "0000000000" for r_writeaddress since it is never assigned
-WARNING:HDLCompiler:871 - "F:\DEV\FPGA\projetos\ST7565\ST7565.vhd" Line 85: Using initial value "00000000" for r_bramdatain since it is never assigned
+WARNING:HDLCompiler:871 - "F:\DEV\FPGA\projetos\ST7565\ST7565.vhd" Line 88: Using initial value "0000000000" for r_writeaddress since it is never assigned
+WARNING:HDLCompiler:871 - "F:\DEV\FPGA\projetos\ST7565\ST7565.vhd" Line 91: Using initial value "00000000" for r_bramdatain since it is never assigned
 
 Elaborating entity <spi> (architecture <Behavioral>) from library <work>.
 
@@ -193,7 +193,7 @@ WARNING:HDLCompiler:321 - "N:/P.20131013/rtf/devlib/vhdl/src/unimacro/BRAM_SDP_M
 WARNING:HDLCompiler:321 - "N:/P.20131013/rtf/devlib/vhdl/src/unimacro/BRAM_SDP_MACRO.vhd" Line 3508: Comparison between arrays of unequal length always returns FALSE.
 WARNING:HDLCompiler:634 - "N:/P.20131013/rtf/devlib/vhdl/src/unimacro/BRAM_SDP_MACRO.vhd" Line 1333: Net <di_pattern[15]> does not have a driver.
 WARNING:HDLCompiler:634 - "N:/P.20131013/rtf/devlib/vhdl/src/unimacro/BRAM_SDP_MACRO.vhd" Line 1334: Net <dip_pattern[1]> does not have a driver.
-WARNING:HDLCompiler:634 - "F:\DEV\FPGA\projetos\ST7565\ST7565.vhd" Line 86: Net <r_enWritePort> does not have a driver.
+WARNING:HDLCompiler:634 - "F:\DEV\FPGA\projetos\ST7565\ST7565.vhd" Line 92: Net <r_enWritePort> does not have a driver.
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -205,6 +205,8 @@ WARNING:Xst:647 - Input <i_button<3:3>> is never used. This port will be preserv
 INFO:Xst:3210 - "F:\DEV\FPGA\projetos\ST7565\main.vhd" line 85: Output port <o_NEW_VALUE> of the instance <up_down_inst> is unconnected or connected to loadless signal.
 INFO:Xst:3210 - "F:\DEV\FPGA\projetos\ST7565\main.vhd" line 107: Output port <o_SLOW_CLK_DBG> of the instance <Inst_ST7565> is unconnected or connected to loadless signal.
 INFO:Xst:3210 - "F:\DEV\FPGA\projetos\ST7565\main.vhd" line 107: Output port <o_INIT_DONE_DBG> of the instance <Inst_ST7565> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\DEV\FPGA\projetos\ST7565\main.vhd" line 107: Output port <o_SPI_FINISHED_DBG> of the instance <Inst_ST7565> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\DEV\FPGA\projetos\ST7565\main.vhd" line 107: Output port <o_SLOW_CLK_ENABLE_DBG> of the instance <Inst_ST7565> is unconnected or connected to loadless signal.
     Summary:
 	no macro.
 Unit <main> synthesized.
@@ -272,64 +274,55 @@ Unit <pwm> synthesized.
 
 Synthesizing Unit <ST7565>.
     Related source file is "F:\DEV\FPGA\projetos\ST7565\ST7565.vhd".
-INFO:Xst:3210 - "F:\DEV\FPGA\projetos\ST7565\ST7565.vhd" line 95: Output port <o_SENDING> of the instance <spi_master> is unconnected or connected to loadless signal.
-WARNING:Xst:653 - Signal <o_SLOW_CLK_DBG> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+INFO:Xst:3210 - "F:\DEV\FPGA\projetos\ST7565\ST7565.vhd" line 96: Output port <o_SENDING> of the instance <spi_master> is unconnected or connected to loadless signal.
 WARNING:Xst:653 - Signal <o_INIT_DONE_DBG> is used but never assigned. This sourceless signal will be automatically connected to value GND.
 WARNING:Xst:653 - Signal <r_enWritePort> is used but never assigned. This sourceless signal will be automatically connected to value GND.
-    Found 4-bit register for signal <r_FSM_SEND_STATE>.
+    Found 4-bit register for signal <r_FSM_SEND>.
     Found 1-bit register for signal <o_LCD_DC>.
+    Found 4-bit register for signal <r_FSM_SEND_NEXT_STATE>.
     Found 8-bit register for signal <r_spi_data>.
+    Found 1-bit register for signal <r_spi_start_send>.
     Found 4-bit register for signal <r_bytes_sended>.
     Found 1-bit register for signal <o_LCD_CS>.
-    Found 1-bit register for signal <r_spi_start_send>.
+    Found 1-bit register for signal <r_enable_clk_div>.
     Found 1-bit register for signal <o_LCD_RESET>.
     Found 4-bit register for signal <r_FSM_DISPLAY>.
+    Found 8-bit register for signal <r_reset_delay_cntr>.
+    Found 8-bit register for signal <r_command<0>>.
+    Found 8-bit register for signal <r_command<1>>.
+    Found 8-bit register for signal <r_command<2>>.
+    Found 8-bit register for signal <r_command<3>>.
+    Found 8-bit register for signal <r_command<4>>.
+    Found 8-bit register for signal <r_command<5>>.
+    Found 8-bit register for signal <r_command<6>>.
+    Found 8-bit register for signal <r_command<7>>.
+    Found 8-bit register for signal <r_command<8>>.
+    Found 8-bit register for signal <r_command<9>>.
+    Found 8-bit register for signal <r_command<10>>.
+    Found 8-bit register for signal <r_command<11>>.
     Found 1-bit register for signal <r_is_command>.
-    Found 8-bit register for signal <r_data<0>>.
-    Found 8-bit register for signal <r_data<1>>.
-    Found 8-bit register for signal <r_data<2>>.
-    Found 8-bit register for signal <r_data<3>>.
-    Found 8-bit register for signal <r_data<4>>.
-    Found 8-bit register for signal <r_data<5>>.
-    Found 8-bit register for signal <r_data<6>>.
-    Found 8-bit register for signal <r_data<7>>.
-    Found 8-bit register for signal <r_data<8>>.
-    Found 8-bit register for signal <r_data<9>>.
-    Found 8-bit register for signal <r_data<10>>.
-    Found 8-bit register for signal <r_data<11>>.
     Found 4-bit register for signal <r_bytes_to_send>.
     Found 1-bit register for signal <r_start_send>.
+    Found 8-bit register for signal <r_data>.
+    Found 1-bit register for signal <r_continuous_mode>.
     Found 8-bit register for signal <r_column_idx>.
     Found 10-bit register for signal <r_readAddress>.
     Found 4-bit register for signal <r_page_idx>.
     Found 1-bit register for signal <r_send_done>.
-INFO:Xst:1799 - State s_reset is never reached in FSM <r_FSM_SEND_STATE>.
-INFO:Xst:1799 - State s_init is never reached in FSM <r_FSM_SEND_STATE>.
-INFO:Xst:1799 - State s_wait is never reached in FSM <r_FSM_SEND_STATE>.
-INFO:Xst:1799 - State s_prepare_pattern is never reached in FSM <r_FSM_SEND_STATE>.
-INFO:Xst:1799 - State s_next_page is never reached in FSM <r_FSM_SEND_STATE>.
-INFO:Xst:1799 - State s_draw_done is never reached in FSM <r_FSM_SEND_STATE>.
-    Found finite state machine <FSM_1> for signal <r_FSM_SEND_STATE>.
-    -----------------------------------------------------------------------
-    | States             | 13                                             |
-    | Transitions        | 17                                             |
-    | Inputs             | 4                                              |
-    | Outputs            | 7                                              |
-    | Clock              | i_CLK (rising_edge)                            |
-    | Power Up State     | s_idle                                         |
-    | Encoding           | auto                                           |
-    | Implementation     | LUT                                            |
-    -----------------------------------------------------------------------
+INFO:Xst:1799 - State s_idle is never reached in FSM <r_FSM_DISPLAY>.
 INFO:Xst:1799 - State s_prepare_next_data is never reached in FSM <r_FSM_DISPLAY>.
 INFO:Xst:1799 - State s_prepare_send is never reached in FSM <r_FSM_DISPLAY>.
 INFO:Xst:1799 - State s_send is never reached in FSM <r_FSM_DISPLAY>.
 INFO:Xst:1799 - State s_send_done is never reached in FSM <r_FSM_DISPLAY>.
-INFO:Xst:1799 - State s_finished is never reached in FSM <r_FSM_DISPLAY>.
-    Found finite state machine <FSM_2> for signal <r_FSM_DISPLAY>.
+INFO:Xst:1799 - State s_wait is never reached in FSM <r_FSM_DISPLAY>.
+INFO:Xst:1799 - State s_waiting is never reached in FSM <r_FSM_DISPLAY>.
+INFO:Xst:1799 - State s_cs_low is never reached in FSM <r_FSM_DISPLAY>.
+INFO:Xst:1799 - State s_cs_high is never reached in FSM <r_FSM_DISPLAY>.
+    Found finite state machine <FSM_1> for signal <r_FSM_DISPLAY>.
     -----------------------------------------------------------------------
-    | States             | 13                                             |
-    | Transitions        | 19                                             |
-    | Inputs             | 4                                              |
+    | States             | 16                                             |
+    | Transitions        | 14                                             |
+    | Inputs             | 7                                              |
     | Outputs            | 17                                             |
     | Clock              | i_CLK (rising_edge)                            |
     | Power Up State     | s_reset                                        |
@@ -337,46 +330,49 @@ INFO:Xst:1799 - State s_finished is never reached in FSM <r_FSM_DISPLAY>.
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
     Found 4-bit adder for signal <r_bytes_sended[3]_GND_13_o_add_3_OUT> created at line 207.
-    Found 10-bit adder for signal <r_readAddress[9]_GND_13_o_add_23_OUT> created at line 1241.
-    Found 8-bit adder for signal <r_column_idx[7]_GND_13_o_add_24_OUT> created at line 318.
-    Found 4-bit adder for signal <r_page_idx[3]_GND_13_o_add_29_OUT> created at line 327.
-    Found 8-bit 12-to-1 multiplexer for signal <r_bytes_sended[3]_X_13_o_wide_mux_2_OUT> created at line 206.
-    Found 4-bit comparator equal for signal <r_bytes_to_send[3]_r_bytes_sended[3]_equal_2_o> created at line 203
+    Found 8-bit adder for signal <r_reset_delay_cntr[7]_GND_13_o_add_32_OUT> created at line 283.
+    Found 10-bit adder for signal <r_readAddress[9]_GND_13_o_add_39_OUT> created at line 1241.
+    Found 8-bit adder for signal <r_column_idx[7]_GND_13_o_add_40_OUT> created at line 330.
+    Found 4-bit adder for signal <r_page_idx[3]_GND_13_o_add_45_OUT> created at line 353.
+    Found 8-bit 12-to-1 multiplexer for signal <r_bytes_sended[3]_X_13_o_wide_mux_2_OUT> created at line 205.
+    Found 4-bit comparator equal for signal <r_bytes_to_send[3]_r_bytes_sended[3]_equal_2_o> created at line 201
     Summary:
-	inferred   4 Adder/Subtractor(s).
-	inferred 141 D-type flip-flop(s).
+	inferred   5 Adder/Subtractor(s).
+	inferred 167 D-type flip-flop(s).
 	inferred   1 Comparator(s).
-	inferred   4 Multiplexer(s).
-	inferred   2 Finite State Machine(s).
+	inferred  14 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
 Unit <ST7565> synthesized.
 
 Synthesizing Unit <spi>.
     Related source file is "F:\DEV\FPGA\projetos\ST7565\spi.vhd".
+    Found 8-bit register for signal <r_DATA>.
     Found 3-bit register for signal <r_FSM_STATE>.
     Found 3-bit register for signal <r_COUNTER>.
     Found 1-bit register for signal <r_START_CLK_DIV>.
-    Found 1-bit register for signal <o_FINISHED>.
     Found 1-bit register for signal <o_SENDING>.
+    Found 1-bit register for signal <r_SLOW_CLK_START_HIGH>.
     Found 1-bit register for signal <o_SPI_CLK>.
     Found 1-bit register for signal <o_DATA>.
-    Found 8-bit register for signal <r_DATA>.
-    Found finite state machine <FSM_3> for signal <r_FSM_STATE>.
+    Found 1-bit register for signal <o_FINISHED>.
+    Found finite state machine <FSM_2> for signal <r_FSM_STATE>.
     -----------------------------------------------------------------------
-    | States             | 5                                              |
-    | Transitions        | 11                                             |
-    | Inputs             | 3                                              |
-    | Outputs            | 5                                              |
+    | States             | 6                                              |
+    | Transitions        | 12                                             |
+    | Inputs             | 4                                              |
+    | Outputs            | 6                                              |
     | Clock              | i_CLK (rising_edge)                            |
     | Power Up State     | s_idle                                         |
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 3-bit subtractor for signal <GND_14_o_GND_14_o_sub_11_OUT<2:0>> created at line 112.
-    Found 1-bit 8-to-1 multiplexer for signal <r_COUNTER[2]_r_DATA[7]_Mux_9_o> created at line 107.
+    Found 3-bit adder for signal <r_COUNTER[2]_GND_14_o_add_3_OUT> created at line 99.
+    Found 3-bit subtractor for signal <GND_14_o_GND_14_o_sub_17_OUT<2:0>> created at line 137.
+    Found 1-bit 8-to-1 multiplexer for signal <r_COUNTER[2]_r_DATA[7]_Mux_15_o> created at line 132.
     Summary:
-	inferred   1 Adder/Subtractor(s).
-	inferred  16 D-type flip-flop(s).
-	inferred   3 Multiplexer(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred  17 D-type flip-flop(s).
+	inferred  14 Multiplexer(s).
 	inferred   1 Finite State Machine(s).
 Unit <spi> synthesized.
 
@@ -401,6 +397,7 @@ Synthesizing Unit <clk_divider_2>.
     Summary:
 	inferred   1 Adder/Subtractor(s).
 	inferred   9 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
 Unit <clk_divider_2> synthesized.
 
 Synthesizing Unit <BRAM_SDP_MACRO>.
@@ -424,7 +421,7 @@ Synthesizing Unit <BRAM_SDP_MACRO>.
         INITP_0D = "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
         INITP_0E = "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
         INITP_0F = "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
-        INIT_00 = "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        INIT_00 = "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000110000001000000001"
         INIT_01 = "0111110011111100111111001111110011111100111111001111110011111100111111001111110011111100111111001111110011111100111111001111110011111100111111001111100011110000111000001100000010000000000000000000000000000000000000000000000000000000000000000000000000000000"
         INIT_02 = "0000110000011100001111000111110011111100111111001111110011111100111111001111110011111100111111001111110011111100111111001111110011111100111111001111110011111100111111001111110011111100111111000111110000111100000111000000110000000100000011000001110000111100"
         INIT_03 = "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100"
@@ -455,7 +452,7 @@ Synthesizing Unit <BRAM_SDP_MACRO>.
         INIT_1C = "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
         INIT_1D = "0011111000111111001111110011111100111111001111110011111100111111001111110011111100111111001111110011111100111111001111110011111100111111001111110001111100001111000001110000001100000001000000000000000000000000000000000000000000000000000000000000000000000000"
         INIT_1E = "0011000000111000001111000011111000111111001111110011111100111111001111110011111100111111001111110011111100111111001111110011111100111111001111110011111100111111001111110011111100111111001111110011111000111100001110000011000000100000001100000011100000111100"
-        INIT_1F = "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000"
+        INIT_1F = "1111111100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000"
         INIT_20 = "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
         INIT_21 = "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
         INIT_22 = "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
@@ -570,33 +567,34 @@ Unit <BRAM_SDP_MACRO> synthesized.
 HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 11
+# Adders/Subtractors                                   : 13
  10-bit adder                                          : 1
  16-bit adder                                          : 1
- 3-bit adder                                           : 2
+ 3-bit adder                                           : 3
  3-bit addsub                                          : 1
  3-bit subtractor                                      : 1
  4-bit adder                                           : 2
  5-bit adder                                           : 1
- 8-bit adder                                           : 2
-# Registers                                            : 49
- 1-bit register                                        : 20
+ 8-bit adder                                           : 3
+# Registers                                            : 56
+ 1-bit register                                        : 23
  10-bit register                                       : 1
  16-bit register                                       : 1
  3-bit register                                        : 5
- 4-bit register                                        : 3
+ 4-bit register                                        : 5
  5-bit register                                        : 1
- 8-bit register                                        : 18
+ 8-bit register                                        : 20
 # Comparators                                          : 2
  3-bit comparator greater                              : 1
  4-bit comparator equal                                : 1
-# Multiplexers                                         : 8
+# Multiplexers                                         : 30
+ 1-bit 2-to-1 multiplexer                              : 7
  1-bit 8-to-1 multiplexer                              : 1
- 3-bit 2-to-1 multiplexer                              : 3
- 4-bit 2-to-1 multiplexer                              : 1
+ 3-bit 2-to-1 multiplexer                              : 7
+ 4-bit 2-to-1 multiplexer                              : 10
  8-bit 12-to-1 multiplexer                             : 1
- 8-bit 2-to-1 multiplexer                              : 2
-# FSMs                                                 : 4
+ 8-bit 2-to-1 multiplexer                              : 4
+# FSMs                                                 : 3
 
 =========================================================================
 
@@ -604,30 +602,31 @@ Macro Statistics
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
-INFO:Xst:2261 - The FF/Latch <r_data_3_1> in Unit <Inst_ST7565> is equivalent to the following 38 FFs/Latches, which will be removed : <r_data_3_3> <r_data_3_4> <r_data_3_6> <r_data_3_7> <r_data_4_1> <r_data_4_2> <r_data_4_3> <r_data_4_4> <r_data_4_5> <r_data_4_6> <r_data_5_2> <r_data_5_5> <r_data_5_6> <r_data_5_7> <r_data_6_4> <r_data_6_6> <r_data_6_7> <r_data_7_4> <r_data_7_6> <r_data_8_0> <r_data_8_1> <r_data_8_2> <r_data_8_3> <r_data_8_4> <r_data_8_5> <r_data_8_7> <r_data_9_0> <r_data_9_1> <r_data_9_2> <r_data_9_3> <r_data_9_6> <r_data_10_0> <r_data_10_1> <r_data_10_2> <r_data_10_3> <r_data_10_5> <r_data_10_6> <r_data_10_7> 
-INFO:Xst:2261 - The FF/Latch <r_data_3_0> in Unit <Inst_ST7565> is equivalent to the following 24 FFs/Latches, which will be removed : <r_data_3_2> <r_data_3_5> <r_data_4_0> <r_data_4_7> <r_data_5_0> <r_data_5_1> <r_data_5_3> <r_data_5_4> <r_data_6_0> <r_data_6_1> <r_data_6_2> <r_data_6_3> <r_data_6_5> <r_data_7_0> <r_data_7_1> <r_data_7_2> <r_data_7_3> <r_data_7_5> <r_data_7_7> <r_data_8_6> <r_data_9_4> <r_data_9_5> <r_data_9_7> <r_data_10_4> 
-INFO:Xst:2261 - The FF/Latch <r_data_2_0> in Unit <Inst_ST7565> is equivalent to the following 9 FFs/Latches, which will be removed : <r_data_2_1> <r_data_2_2> <r_data_2_3> <r_data_2_4> <r_data_2_5> <r_data_1_1> <r_data_1_2> <r_data_1_3> <r_data_1_6> 
-WARNING:Xst:1710 - FF/Latch <r_data_11_0> (without init value) has a constant value of 0 in block <Inst_ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <r_data_11_1> (without init value) has a constant value of 0 in block <Inst_ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <r_data_11_2> (without init value) has a constant value of 0 in block <Inst_ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <r_data_11_3> (without init value) has a constant value of 0 in block <Inst_ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <r_data_11_4> (without init value) has a constant value of 0 in block <Inst_ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <r_data_11_5> (without init value) has a constant value of 0 in block <Inst_ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <r_data_11_6> (without init value) has a constant value of 0 in block <Inst_ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <r_data_11_7> (without init value) has a constant value of 0 in block <Inst_ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <r_data_3_0> (without init value) has a constant value of 1 in block <Inst_ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <r_data_3_1> (without init value) has a constant value of 0 in block <Inst_ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <r_data_2_0> (without init value) has a constant value of 0 in block <Inst_ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:2404 -  FFs/Latches <r_data_3<7:6>> (without init value) have a constant value of 0 in block <ST7565>.
-WARNING:Xst:2404 -  FFs/Latches <r_data_5<7:5>> (without init value) have a constant value of 0 in block <ST7565>.
-WARNING:Xst:2404 -  FFs/Latches <r_data_6<7:6>> (without init value) have a constant value of 0 in block <ST7565>.
-WARNING:Xst:2404 -  FFs/Latches <r_data_8<7:7>> (without init value) have a constant value of 0 in block <ST7565>.
-WARNING:Xst:2404 -  FFs/Latches <r_data_10<7:5>> (without init value) have a constant value of 0 in block <ST7565>.
+INFO:Xst:2261 - The FF/Latch <r_command_1_1> in Unit <Inst_ST7565> is equivalent to the following 9 FFs/Latches, which will be removed : <r_command_1_2> <r_command_1_3> <r_command_1_6> <r_command_2_0> <r_command_2_1> <r_command_2_2> <r_command_2_3> <r_command_2_4> <r_command_2_5> 
+INFO:Xst:2261 - The FF/Latch <r_command_3_0> in Unit <Inst_ST7565> is equivalent to the following 24 FFs/Latches, which will be removed : <r_command_3_2> <r_command_3_5> <r_command_4_0> <r_command_4_7> <r_command_5_0> <r_command_5_1> <r_command_5_3> <r_command_5_4> <r_command_8_6> <r_command_6_0> <r_command_6_1> <r_command_6_2> <r_command_6_3> <r_command_6_5> <r_command_7_0> <r_command_7_1> <r_command_7_2> <r_command_7_3> <r_command_7_5> <r_command_7_7> <r_command_9_4> <r_command_9_5> <r_command_9_7> <r_command_10_4> 
+INFO:Xst:2261 - The FF/Latch <r_command_3_1> in Unit <Inst_ST7565> is equivalent to the following 38 FFs/Latches, which will be removed : <r_command_3_3> <r_command_3_4> <r_command_3_6> <r_command_3_7> <r_command_4_1> <r_command_4_2> <r_command_4_3> <r_command_4_4> <r_command_4_5> <r_command_4_6> <r_command_5_2> <r_command_5_5> <r_command_5_6> <r_command_5_7> <r_command_8_0> <r_command_8_1> <r_command_8_2> <r_command_8_3> <r_command_8_4> <r_command_8_5> <r_command_8_7> <r_command_6_4> <r_command_6_6> <r_command_6_7> <r_command_7_4> <r_command_7_6> <r_command_9_0> <r_command_9_1> <r_command_9_2> <r_command_9_3> <r_command_9_6> <r_command_10_0> <r_command_10_1> <r_command_10_2> <r_command_10_3> <r_command_10_5> <r_command_10_6> <r_command_10_7> 
+WARNING:Xst:1710 - FF/Latch <r_command_11_0> (without init value) has a constant value of 0 in block <Inst_ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <r_command_11_1> (without init value) has a constant value of 0 in block <Inst_ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <r_command_11_2> (without init value) has a constant value of 0 in block <Inst_ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <r_command_11_3> (without init value) has a constant value of 0 in block <Inst_ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <r_command_11_4> (without init value) has a constant value of 0 in block <Inst_ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <r_command_11_5> (without init value) has a constant value of 0 in block <Inst_ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <r_command_11_6> (without init value) has a constant value of 0 in block <Inst_ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <r_command_11_7> (without init value) has a constant value of 0 in block <Inst_ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <r_command_3_0> (without init value) has a constant value of 1 in block <Inst_ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <r_command_3_1> (without init value) has a constant value of 0 in block <Inst_ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <r_command_1_1> (without init value) has a constant value of 0 in block <Inst_ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2404 -  FFs/Latches <r_command_3<7:6>> (without init value) have a constant value of 0 in block <ST7565>.
+WARNING:Xst:2404 -  FFs/Latches <r_command_5<7:5>> (without init value) have a constant value of 0 in block <ST7565>.
+WARNING:Xst:2404 -  FFs/Latches <r_command_6<7:6>> (without init value) have a constant value of 0 in block <ST7565>.
+WARNING:Xst:2404 -  FFs/Latches <r_command_8<7:7>> (without init value) have a constant value of 0 in block <ST7565>.
+WARNING:Xst:2404 -  FFs/Latches <r_command_10<7:5>> (without init value) have a constant value of 0 in block <ST7565>.
 
 Synthesizing (advanced) Unit <ST7565>.
 The following registers are absorbed into counter <r_bytes_sended>: 1 register on signal <r_bytes_sended>.
-The following registers are absorbed into counter <r_page_idx>: 1 register on signal <r_page_idx>.
+The following registers are absorbed into counter <r_reset_delay_cntr>: 1 register on signal <r_reset_delay_cntr>.
 The following registers are absorbed into counter <r_readAddress>: 1 register on signal <r_readAddress>.
+The following registers are absorbed into counter <r_page_idx>: 1 register on signal <r_page_idx>.
 The following registers are absorbed into counter <r_column_idx>: 1 register on signal <r_column_idx>.
 Unit <ST7565> synthesized (advanced).
 
@@ -656,141 +655,128 @@ Unit <up_down_counter> synthesized (advanced).
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 1
+# Adders/Subtractors                                   : 2
+ 3-bit adder                                           : 1
  3-bit subtractor                                      : 1
-# Counters                                             : 10
+# Counters                                             : 11
  10-bit up counter                                     : 1
  16-bit up counter                                     : 1
  3-bit up counter                                      : 2
  3-bit updown counter                                  : 1
  4-bit up counter                                      : 2
  5-bit up counter                                      : 1
- 8-bit up counter                                      : 2
-# Registers                                            : 147
- Flip-Flops                                            : 147
+ 8-bit up counter                                      : 3
+# Registers                                            : 166
+ Flip-Flops                                            : 166
 # Comparators                                          : 2
  3-bit comparator greater                              : 1
  4-bit comparator equal                                : 1
-# Multiplexers                                         : 13
+# Multiplexers                                         : 34
  1-bit 12-to-1 multiplexer                             : 8
+ 1-bit 2-to-1 multiplexer                              : 7
  1-bit 8-to-1 multiplexer                              : 1
- 3-bit 2-to-1 multiplexer                              : 2
- 8-bit 2-to-1 multiplexer                              : 2
-# FSMs                                                 : 4
+ 3-bit 2-to-1 multiplexer                              : 6
+ 4-bit 2-to-1 multiplexer                              : 9
+ 8-bit 2-to-1 multiplexer                              : 3
+# FSMs                                                 : 3
 
 =========================================================================
 
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-WARNING:Xst:1710 - FF/Latch <r_data_8_3> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_8_2> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_8_1> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_8_0> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_6_5> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_6_4> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_6_3> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_6_2> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_6_1> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_6_0> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_5_4> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_5_3> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_5_2> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_5_1> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_5_0> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_3_5> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_3_4> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_2_5> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_2_4> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_2_3> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_2_2> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_2_1> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_2_0> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_1_6> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_1_3> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_1_2> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_1_1> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_10_4> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_10_3> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_10_2> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_10_1> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_10_0> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_8_6> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_8_5> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_8_4> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_7_1> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_7_0> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_4_7> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_4_6> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_4_5> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_4_4> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_4_3> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_4_2> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_4_1> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_4_0> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_11_7> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_11_6> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_11_5> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_11_4> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_11_3> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_11_2> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_11_1> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_11_0> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_3_3> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_3_2> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_3_1> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_3_0> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_9_7> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_9_6> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_9_5> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_9_4> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_9_3> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_9_2> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_9_1> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_9_0> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_7_7> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_7_6> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_7_5> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_7_4> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_7_3> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_data_7_2> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <r_command_6_2> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_6_1> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_6_0> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_5_4> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_5_3> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_5_2> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_5_1> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_5_0> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_8_6> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_8_5> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_8_4> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_8_3> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_8_2> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_8_1> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_8_0> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_3_5> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_3_4> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_2_5> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_2_4> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_2_3> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_2_2> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_2_1> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_2_0> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_1_6> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_1_3> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_1_2> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_1_1> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_10_4> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_10_3> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_10_2> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_10_1> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_10_0> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_6_5> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_6_4> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_6_3> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_7_1> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_7_0> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_4_7> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_4_6> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_4_5> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_4_4> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_4_3> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_4_2> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_4_1> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_4_0> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_11_7> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_11_6> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_11_5> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_11_4> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_11_3> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_11_2> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_11_1> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_11_0> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_3_3> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_3_2> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_3_1> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_3_0> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_9_7> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_9_6> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_9_5> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_9_4> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_9_3> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_9_2> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_9_1> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_9_0> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_7_7> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_7_6> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_7_5> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_7_4> (without init value) has a constant value of 0 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_7_3> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <r_command_7_2> (without init value) has a constant value of 1 in block <ST7565>. This FF/Latch will be trimmed during the optimization process.
 Analyzing FSM <MFsm> for best encoding.
-Optimizing FSM <FSM_2> on signal <r_FSM_DISPLAY[1:4]> with user encoding.
+Optimizing FSM <FSM_1> on signal <r_FSM_DISPLAY[1:4]> with user encoding.
 ---------------------------------
  State               | Encoding
 ---------------------------------
  s_reset             | 0000
  s_init              | 0001
- s_wait              | 0010
- s_idle              | 0011
+ s_idle              | unreached
  s_prepare_next_data | unreached
  s_prepare_send      | unreached
  s_send              | unreached
- s_sending           | 0111
+ s_sending           | 0110
  s_send_done         | unreached
- s_finished          | unreached
- s_prepare_pattern   | 1010
- s_next_page         | 1011
- s_draw_done         | 1100
----------------------------------
-Analyzing FSM <MFsm> for best encoding.
-Optimizing FSM <FSM_1> on signal <r_FSM_SEND_STATE[1:3]> with gray encoding.
----------------------------------
- State               | Encoding
----------------------------------
- s_reset             | unreached
- s_init              | unreached
+ s_finished          | 1000
+ s_prepare_pattern   | 1001
+ s_next_page         | 1010
  s_wait              | unreached
- s_idle              | 000
- s_prepare_next_data | 001
- s_prepare_send      | 011
- s_send              | 110
- s_sending           | 111
- s_send_done         | 101
- s_finished          | 010
- s_prepare_pattern   | unreached
- s_next_page         | unreached
- s_draw_done         | unreached
+ s_waiting           | unreached
+ s_cs_low            | unreached
+ s_cs_high           | unreached
+ s_wait_reset        | 1111
 ---------------------------------
 Analyzing FSM <MFsm> for best encoding.
 Optimizing FSM <up_down_inst/FSM_0> on signal <r_FSM_STATE[1:3]> with user encoding.
@@ -804,7 +790,7 @@ Optimizing FSM <up_down_inst/FSM_0> on signal <r_FSM_STATE[1:3]> with user encod
  s_update_output | 100
 -----------------------------
 Analyzing FSM <MFsm> for best encoding.
-Optimizing FSM <Inst_ST7565/spi_master/FSM_3> on signal <r_FSM_STATE[1:3]> with user encoding.
+Optimizing FSM <Inst_ST7565/spi_master/FSM_2> on signal <r_FSM_STATE[1:3]> with user encoding.
 ---------------------------------
  State               | Encoding
 ---------------------------------
@@ -813,9 +799,13 @@ Optimizing FSM <Inst_ST7565/spi_master/FSM_3> on signal <r_FSM_STATE[1:3]> with 
  s_finished          | 010
  s_increment_counter | 011
  s_start_clk_div     | 100
+ s_two_clk_delay     | 101
 ---------------------------------
-INFO:Xst:2261 - The FF/Latch <Inst_ST7565/r_bytes_to_send_3> in Unit <main> is equivalent to the following FF/Latch, which will be removed : <Inst_ST7565/r_bytes_to_send_2> 
-INFO:Xst:2261 - The FF/Latch <Inst_ST7565/r_data_2_7> in Unit <main> is equivalent to the following 4 FFs/Latches, which will be removed : <Inst_ST7565/r_data_2_6> <Inst_ST7565/r_data_1_7> <Inst_ST7565/r_data_1_5> <Inst_ST7565/r_data_1_0> 
+WARNING:Xst:1710 - FF/Latch <Inst_ST7565/r_command_0_7> (without init value) has a constant value of 1 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <Inst_ST7565/r_command_0_6> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <Inst_ST7565/r_command_0_5> (without init value) has a constant value of 1 in block <main>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <Inst_ST7565/r_bytes_to_send_1> in Unit <main> is equivalent to the following 3 FFs/Latches, which will be removed : <Inst_ST7565/r_bytes_to_send_0> <Inst_ST7565/r_command_0_4> <Inst_ST7565/r_command_1_4> 
+INFO:Xst:2261 - The FF/Latch <Inst_ST7565/r_bytes_to_send_3> in Unit <main> is equivalent to the following 6 FFs/Latches, which will be removed : <Inst_ST7565/r_bytes_to_send_2> <Inst_ST7565/r_command_2_7> <Inst_ST7565/r_command_2_6> <Inst_ST7565/r_command_1_7> <Inst_ST7565/r_command_1_5> <Inst_ST7565/r_command_1_0> 
 
 Optimizing unit <main> ...
 
@@ -826,6 +816,7 @@ Optimizing unit <spi> ...
 Optimizing unit <debouncer> ...
 WARNING:Xst:2677 - Node <up_down_inst/o_NEW_VALUE> of sequential type is unconnected in block <main>.
 WARNING:Xst:2677 - Node <Inst_ST7565/spi_master/o_SENDING> of sequential type is unconnected in block <main>.
+WARNING:Xst:1710 - FF/Latch <Inst_ST7565/r_command_0_3> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 INFO:Xst:2261 - The FF/Latch <clkDiv_inst/r_counter_0> in Unit <main> is equivalent to the following FF/Latch, which will be removed : <backlight_pwm/r_clk_prescaler_counter_0> 
 INFO:Xst:2261 - The FF/Latch <Inst_ST7565/r_column_idx_0> in Unit <main> is equivalent to the following FF/Latch, which will be removed : <Inst_ST7565/r_readAddress_0> 
 INFO:Xst:2261 - The FF/Latch <Inst_ST7565/r_column_idx_1> in Unit <main> is equivalent to the following FF/Latch, which will be removed : <Inst_ST7565/r_readAddress_1> 
@@ -834,15 +825,15 @@ INFO:Xst:2261 - The FF/Latch <Inst_ST7565/r_column_idx_3> in Unit <main> is equi
 INFO:Xst:2261 - The FF/Latch <Inst_ST7565/r_column_idx_4> in Unit <main> is equivalent to the following FF/Latch, which will be removed : <Inst_ST7565/r_readAddress_4> 
 INFO:Xst:2261 - The FF/Latch <Inst_ST7565/r_column_idx_5> in Unit <main> is equivalent to the following FF/Latch, which will be removed : <Inst_ST7565/r_readAddress_5> 
 INFO:Xst:2261 - The FF/Latch <Inst_ST7565/r_column_idx_6> in Unit <main> is equivalent to the following FF/Latch, which will be removed : <Inst_ST7565/r_readAddress_6> 
-INFO:Xst:3203 - The FF/Latch <Inst_ST7565/o_LCD_CS> in Unit <main> is the opposite to the following FF/Latch, which will be removed : <Inst_ST7565/r_FSM_SEND_STATE_FSM_FFd1> 
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block main, actual ratio is 3.
+Found area constraint ratio of 100 (+ 5) on block main, actual ratio is 4.
 FlipFlop Inst_ST7565/r_FSM_DISPLAY_FSM_FFd1 has been replicated 1 time(s)
-FlipFlop Inst_ST7565/r_FSM_DISPLAY_FSM_FFd3 has been replicated 1 time(s)
-FlipFlop Inst_ST7565/r_FSM_DISPLAY_FSM_FFd4 has been replicated 1 time(s)
-FlipFlop Inst_ST7565/slow_clk/r_SLOW_CLK has been replicated 1 time(s)
+FlipFlop Inst_ST7565/r_FSM_DISPLAY_FSM_FFd2 has been replicated 2 time(s)
+FlipFlop Inst_ST7565/r_FSM_DISPLAY_FSM_FFd3 has been replicated 2 time(s)
+FlipFlop Inst_ST7565/r_FSM_DISPLAY_FSM_FFd4 has been replicated 2 time(s)
+FlipFlop Inst_ST7565/r_FSM_SEND_0 has been replicated 1 time(s)
 
 Final Macro Processing ...
 
@@ -850,8 +841,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 141
- Flip-Flops                                            : 141
+# Registers                                            : 162
+ Flip-Flops                                            : 162
 
 =========================================================================
 
@@ -874,25 +865,23 @@ Top Level Output File Name         : main.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 255
+# BELS                             : 320
 #      GND                         : 1
-#      INV                         : 12
-#      LUT1                        : 38
-#      LUT2                        : 9
-#      LUT3                        : 17
-#      LUT4                        : 17
-#      LUT5                        : 32
-#      LUT6                        : 53
-#      MUXCY                       : 38
-#      MUXF7                       : 2
+#      INV                         : 14
+#      LUT1                        : 43
+#      LUT2                        : 22
+#      LUT3                        : 23
+#      LUT4                        : 27
+#      LUT5                        : 33
+#      LUT6                        : 62
+#      MUXCY                       : 45
+#      MUXF7                       : 6
 #      VCC                         : 1
-#      XORCY                       : 35
-# FlipFlops/Latches                : 141
-#      FD                          : 79
-#      FDE                         : 38
-#      FDR                         : 15
-#      FDRE                        : 8
-#      FDSE                        : 1
+#      XORCY                       : 43
+# FlipFlops/Latches                : 162
+#      FD                          : 78
+#      FDE                         : 67
+#      FDR                         : 17
 # RAMS                             : 1
 #      RAMB8BWER                   : 1
 # Clock Buffers                    : 1
@@ -908,16 +897,16 @@ Selected Device : 6slx9tqg144-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             141  out of  11440     1%  
- Number of Slice LUTs:                  178  out of   5720     3%  
-    Number used as Logic:               178  out of   5720     3%  
+ Number of Slice Registers:             162  out of  11440     1%  
+ Number of Slice LUTs:                  224  out of   5720     3%  
+    Number used as Logic:               224  out of   5720     3%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    206
-   Number with an unused Flip Flop:      65  out of    206    31%  
-   Number with an unused LUT:            28  out of    206    13%  
-   Number of fully used LUT-FF pairs:   113  out of    206    54%  
-   Number of unique control sets:        15
+ Number of LUT Flip Flop pairs used:    253
+   Number with an unused Flip Flop:      91  out of    253    35%  
+   Number with an unused LUT:            29  out of    253    11%  
+   Number of fully used LUT-FF pairs:   133  out of    253    52%  
+   Number of unique control sets:        19
 
 IO Utilization: 
  Number of IOs:                          14
@@ -949,7 +938,7 @@ Clock Information:
 -----------------------------------+-------------------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)               | Load  |
 -----------------------------------+-------------------------------------+-------+
-i_CLK                              | BUFGP                               | 120   |
+i_CLK                              | BUFGP                               | 141   |
 backlight_pwm/r_clk_prescaled      | NONE(backlight_pwm/o_VALUE)         | 4     |
 clkDiv_inst/r_slowClk              | NONE(debouncer_down_ins/r_counter_7)| 18    |
 -----------------------------------+-------------------------------------+-------+
@@ -963,9 +952,9 @@ Timing Summary:
 ---------------
 Speed Grade: -3
 
-   Minimum period: 3.796ns (Maximum Frequency: 263.418MHz)
+   Minimum period: 4.250ns (Maximum Frequency: 235.316MHz)
    Minimum input arrival time before clock: 2.725ns
-   Maximum output required time after clock: 4.089ns
+   Maximum output required time after clock: 3.668ns
    Maximum combinational path delay: 5.157ns
 
 Timing Details:
@@ -974,27 +963,27 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'i_CLK'
-  Clock period: 3.796ns (frequency: 263.418MHz)
-  Total number of paths / destination ports: 1383 / 199
+  Clock period: 4.250ns (frequency: 235.316MHz)
+  Total number of paths / destination ports: 2099 / 234
 -------------------------------------------------------------------------
-Delay:               3.796ns (Levels of Logic = 3)
-  Source:            Inst_ST7565/r_page_idx_2 (FF)
-  Destination:       Inst_ST7565/r_data_0_7 (FF)
+Delay:               4.250ns (Levels of Logic = 3)
+  Source:            Inst_ST7565/r_bytes_sended_2 (FF)
+  Destination:       Inst_ST7565/r_spi_data_7 (FF)
   Source Clock:      i_CLK rising
   Destination Clock: i_CLK rising
 
-  Data Path: Inst_ST7565/r_page_idx_2 to Inst_ST7565/r_data_0_7
+  Data Path: Inst_ST7565/r_bytes_sended_2 to Inst_ST7565/r_spi_data_7
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q              6   0.447   0.973  Inst_ST7565/r_page_idx_2 (Inst_ST7565/r_page_idx_2)
-     LUT4:I1->O            9   0.205   0.830  Inst_ST7565/PWR_14_o_r_page_idx[3]_equal_29_o<3>1 (Inst_ST7565/PWR_14_o_r_page_idx[3]_equal_29_o)
-     LUT5:I4->O            9   0.205   0.830  Inst_ST7565/_n0430_inv21_rstpot (Inst_ST7565/_n0430_inv21_rstpot)
-     LUT3:I2->O            1   0.205   0.000  Inst_ST7565/r_bytes_to_send_0_dpot (Inst_ST7565/r_bytes_to_send_0_dpot)
-     FDE:D                     0.102          Inst_ST7565/r_bytes_to_send_0
+     FDE:C->Q             11   0.447   1.111  Inst_ST7565/r_bytes_sended_2 (Inst_ST7565/r_bytes_sended_2)
+     LUT6:I3->O            9   0.205   0.830  Inst_ST7565/r_bytes_to_send[3]_r_bytes_sended[3]_equal_2_o41 (Inst_ST7565/r_bytes_to_send[3]_r_bytes_sended[3]_equal_2_o)
+     LUT5:I4->O            8   0.205   1.147  Inst_ST7565/_n0455_inv21_rstpot (Inst_ST7565/_n0455_inv21_rstpot)
+     LUT5:I0->O            1   0.203   0.000  Inst_ST7565/r_spi_data_4_dpot (Inst_ST7565/r_spi_data_4_dpot)
+     FDE:D                     0.102          Inst_ST7565/r_spi_data_4
     ----------------------------------------
-    Total                      3.796ns (1.164ns logic, 2.632ns route)
-                                       (30.7% logic, 69.3% route)
+    Total                      4.250ns (1.162ns logic, 3.088ns route)
+                                       (27.3% logic, 72.7% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'backlight_pwm/r_clk_prescaled'
@@ -1034,7 +1023,7 @@ Delay:               2.797ns (Levels of Logic = 2)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      FD:C->Q               3   0.447   1.015  debouncer_down_ins/r_counter_1 (debouncer_down_ins/r_counter_1)
-     LUT6:I0->O            1   0.203   0.827  debouncer_down_ins/r_output_rstpot_SW2 (N46)
+     LUT6:I0->O            1   0.203   0.827  debouncer_down_ins/r_output_rstpot_SW2 (N71)
      LUT6:I2->O            1   0.203   0.000  debouncer_down_ins/r_output_rstpot (debouncer_down_ins/r_output_rstpot)
      FD:D                      0.102          debouncer_down_ins/r_output
     ----------------------------------------
@@ -1065,20 +1054,20 @@ Offset:              2.725ns (Levels of Logic = 2)
 Timing constraint: Default OFFSET OUT AFTER for Clock 'i_CLK'
   Total number of paths / destination ports: 5 / 5
 -------------------------------------------------------------------------
-Offset:              4.089ns (Levels of Logic = 1)
-  Source:            Inst_ST7565/o_LCD_CS (FF)
-  Destination:       o_LCD_CS (PAD)
+Offset:              3.668ns (Levels of Logic = 1)
+  Source:            Inst_ST7565/o_LCD_DC (FF)
+  Destination:       o_LCD_DC (PAD)
   Source Clock:      i_CLK rising
 
-  Data Path: Inst_ST7565/o_LCD_CS to o_LCD_CS
+  Data Path: Inst_ST7565/o_LCD_DC to o_LCD_DC
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q              19   0.447   1.071  Inst_ST7565/o_LCD_CS (Inst_ST7565/o_LCD_CS)
-     OBUF:I->O                 2.571          o_LCD_CS_OBUF (o_LCD_CS)
+     FD:C->Q               3   0.447   0.650  Inst_ST7565/o_LCD_DC (Inst_ST7565/o_LCD_DC)
+     OBUF:I->O                 2.571          o_LCD_DC_OBUF (o_LCD_DC)
     ----------------------------------------
-    Total                      4.089ns (3.018ns logic, 1.071ns route)
-                                       (73.8% logic, 26.2% route)
+    Total                      3.668ns (3.018ns logic, 0.650ns route)
+                                       (82.3% logic, 17.7% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'backlight_pwm/r_clk_prescaled'
@@ -1146,20 +1135,20 @@ Clock to Setup on destination clock i_CLK
 Source Clock         |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------------+---------+---------+---------+---------+
 clkDiv_inst/r_slowClk|    1.633|         |         |         |
-i_CLK                |    3.796|         |         |         |
+i_CLK                |    4.250|         |         |         |
 ---------------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 7.00 secs
-Total CPU time to Xst completion: 7.34 secs
+Total REAL time to Xst completion: 10.00 secs
+Total CPU time to Xst completion: 9.66 secs
  
 --> 
 
-Total memory usage is 277428 kilobytes
+Total memory usage is 277812 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  136 (   0 filtered)
-Number of infos    :   30 (   0 filtered)
+Number of warnings :  139 (   0 filtered)
+Number of infos    :   29 (   0 filtered)
 

@@ -44,6 +44,8 @@ ARCHITECTURE behavior OF ST7565_tb IS
          i_CLK : IN  std_logic;
          o_SLOW_CLK_DBG : OUT std_logic;
          o_INIT_DONE_DBG : OUT std_logic;
+         o_SPI_FINISHED_DBG : OUT std_logic;
+         o_SLOW_CLK_ENABLE_DBG: out std_logic;
          o_LCD_CLK : OUT  std_logic;
          o_LCD_MOSI : OUT  std_logic;
          o_LCD_CS : OUT  std_logic;
@@ -59,6 +61,8 @@ ARCHITECTURE behavior OF ST7565_tb IS
  	--Outputs
    signal o_SLOW_CLK_DBG : std_logic;
    signal o_INIT_DONE_DBG : std_logic;
+   signal o_SPI_FINISHED_DBG : std_logic;
+   signal o_SLOW_CLK_ENABLE_DBG: std_logic;
    signal o_LCD_CLK : std_logic;
    signal o_LCD_MOSI : std_logic;
    signal o_LCD_CS : std_logic;
@@ -75,6 +79,8 @@ BEGIN
           i_CLK => i_CLK,
           o_SLOW_CLK_DBG => o_SLOW_CLK_DBG,
           o_INIT_DONE_DBG => o_INIT_DONE_DBG,
+          o_SPI_FINISHED_DBG => o_SPI_FINISHED_DBG,
+          o_SLOW_CLK_ENABLE_DBG => o_SLOW_CLK_ENABLE_DBG,
           o_LCD_CLK => o_LCD_CLK,
           o_LCD_MOSI => o_LCD_MOSI,
           o_LCD_CS => o_LCD_CS,

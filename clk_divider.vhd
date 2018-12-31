@@ -68,9 +68,10 @@ begin
 					r_SLOW_CLK <= '1';
 				else
 					r_CLK_DIV_CNT <= r_CLK_DIV_CNT + 1;
-					r_SLOW_CLK <= '0';
+					r_SLOW_CLK <= '0';		
 				end if ;
 			else
+				r_SLOW_CLK <= '0';
 				r_CLK_DIV_CNT <= 0;
 			end if ;
 
