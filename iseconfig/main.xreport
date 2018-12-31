@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2018-12-31T14:37:57</DateModified>
+  <DateModified>2018-12-31T19:25:27</DateModified>
   <ModuleName>main</ModuleName>
-  <SummaryTimeStamp>2018-12-20T14:25:09</SummaryTimeStamp>
+  <SummaryTimeStamp>2018-12-31T19:16:16</SummaryTimeStamp>
   <SavedFilePath>F:/DEV/FPGA/projetos/ST7565/iseconfig/main.xreport</SavedFilePath>
   <ImplementationReportsDirectory>F:/DEV/FPGA/projetos/ST7565\</ImplementationReportsDirectory>
   <DateInitialized>2018-11-13T20:13:54</DateInitialized>

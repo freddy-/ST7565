@@ -1,4 +1,0 @@
-vhdl isim_temp "clk_divider.vhd"
-vhdl isim_temp "spi.vhd"
-vhdl isim_temp "ST7565.vhd"
-vhdl isim_temp "ST7565_tb.vhd"

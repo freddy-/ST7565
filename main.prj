@@ -1,8 +1,0 @@
-vhdl work "clk_divider.vhd"
-vhdl work "spi.vhd"
-vhdl work "up_down_counter.vhd"
-vhdl work "ST7565.vhd"
-vhdl work "pwm.vhd"
-vhdl work "debouncer.vhd"
-vhdl work "clkDiv.vhd"
-vhdl work "main.vhd"
